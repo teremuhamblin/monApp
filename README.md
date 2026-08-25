@@ -1,12 +1,13 @@
 ###### README.md >> markdown
 - Pour Android avec :
- - + Rust
- - + CMake
- - + GitHub Actions
+   + Rust
+   + CMake
+   + GitHub Actions
 
 ---
 
-# 🟥 Mon Projet **monApp**
+# 🟥 Mon Projet 
+- **monApp**
 >Application Android tactique, propulsée par un noyau Rust, compilée automatiquement via GitHub Actions.
 
 ---
