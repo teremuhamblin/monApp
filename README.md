@@ -59,23 +59,23 @@ monApp/
 ---
 
 ### 🟩 3. Fonctionnement tactique
-🔹 Rust (monapp_core)
+**🔹 Rust (monapp_core)**
 Le noyau Rust fournit une fonction native :
 ```rust
 rust_hello() → "Bonjour depuis Rust (monApp Core)."
 ```
 >Cette fonction est exportée en C, puis récupérée par le pont C++/JNI, et enfin affichée dans l’interface Android.
 
-🔹 C++ / JNI
+**🔹 C++ / JNI**
 >Le fichier native-lib.cpp agit comme liaison tactique entre Rust et Java.
 
-🔹 Java Android
+**🔹 Java Android**
 >MainActivity charge la librairie native et affiche le message Rust dans un TextView.
 
-🔹 CMake
+**🔹 CMake**
 >Compile le pont C++ et lie la librairie Rust générée par GitHub Actions.
 
-🔹 GitHub Actions
+**🔹 GitHub Actions**
 >Le pipeline :
 ```md
 1. Installe Rust  
@@ -88,7 +88,8 @@ rust_hello() → "Bonjour depuis Rust (monApp Core)."
 
 ---
 
-### 🟧 4. Compilation automatique >CI/CD militaire
+### 🟧 4. Compilation automatique
+>CI/CD militaire
 - Chaque push sur main déclenche :
    - Compilation Rust (target Android)  
    - Génération de la librairie native .so  
