@@ -30,6 +30,9 @@
 ---
 
 ### 🟦 2. Architecture du projet
+
+[![pages-build-deployment](https://github.com/teremuhamblin/monApp/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/teremuhamblin/monApp/actions/workflows/pages/pages-build-deployment)
+
 ```text
 monApp/
 ├─ rust/                     # Noyau Rust (cdylib)
