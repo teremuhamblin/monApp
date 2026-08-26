@@ -27,7 +27,7 @@ monApp est une application Android minimaliste mais robuste, conçue selon une a
 - Sans Android Studio,
 - Sans SDK local,
 - Sans cargo-ndk installé sur ta machine.  
-   -GitHub exécute toute la chaîne de compilation comme un centre de commandement automatisé.
+   - GitHub exécute toute la chaîne de compilation comme un centre de commandement automatisé.
 
 ---
 
@@ -69,20 +69,26 @@ Le noyau Rust fournit une fonction native :
 ```rust
 rust_hello() → "Bonjour depuis Rust (monApp Core)."
 ```
->Cette fonction est exportée en C, puis récupérée par le pont C++/JNI, et enfin affichée dans l’interface Android.
+>Cette fonction est exportée en C, puis récupérée par le pont ***C++/JNI***, et enfin affichée dans l’interface Android.
 
 **🔹 C++ / JNI**
->Le fichier native-lib.cpp agit comme liaison tactique entre Rust et Java.
+```md
+Le fichier native-lib.cpp agit comme liaison tactique entre Rust et Java.
+```
 
 **🔹 Java Android**
->MainActivity charge la librairie native et affiche le message Rust dans un TextView.
+```md
+MainActivity charge la librairie native et affiche le message Rust dans un TextView.
+```
 
 **🔹 CMake**
->Compile le pont C++ et lie la librairie Rust générée par GitHub Actions.
+```md
+Compile le pont C++ et lie la librairie Rust générée par GitHub Actions.
+```
 
 **🔹 GitHub Actions**
 >Le pipeline :
-```md
+```text
 1. Installe Rust  
 2. Installe cargo-ndk  
 3. Compile la librairie Rust pour Android  
@@ -102,9 +108,11 @@ rust_hello() → "Bonjour depuis Rust (monApp Core)."
    - Export de l’APK dans les Artifacts
 
 >📦 Récupération de l’APK
+```md
 1. Va dans Actions  
 2. Sélectionne le workflow Build Android APK  
 3. Télécharge l’Artifact monApp-debug.apk
+```
 
 - Aucune installation locale requise.  
 Ton navigateur Chrome suffit.
@@ -124,13 +132,15 @@ Ton navigateur Chrome suffit.
 
 ### 🟫 6. Licence
 >Ce projet est placé sous The Unlicense, ce qui signifie :
+```text
 - Domaine public  
 - Libre utilisation  
 - Libre modification  
 - Libre distribution  
 - Libre commercialisation  
 - Aucun copyright  
-- Aucun droit réservé  
+- Aucun droit réservé
+```
 
 ***Tu es libre d’en faire ce que tu veux, sans restriction.***
 
@@ -168,7 +178,7 @@ Ton navigateur Chrome suffit.
 ---
 
 ### 🟦 9. Message final
-```text
+```md
 Ce dépôt est conçu comme une application de démonstration militaire, robuste, simple, efficace, entièrement compilée dans le cloud.  
 Tu n’as besoin que de GitHub et d’un navigateur pour déployer une application Android native en Rust.
 ```
