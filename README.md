@@ -14,7 +14,7 @@ Application Android tactique, propulsée par un noyau Rust, compilée automatiqu
 
 ### 🪖 1. Présentation
 >Opérationnelle
-monApp est une application Android minimaliste mais robuste, conçue selon une architecture militaire :
+- monApp est une application Android minimaliste mais robuste, conçue selon une architecture militaire :
 ```md
 - Rust pour le noyau logique (monapp_core)  
 - C++ / JNI pour le pont tactique  
