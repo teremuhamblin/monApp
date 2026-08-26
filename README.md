@@ -8,17 +8,19 @@
 
 # 🟥 Mon Projet 
 - **monApp**
->Application Android tactique, propulsée par un noyau Rust, compilée automatiquement via GitHub Actions.
+Application Android tactique, propulsée par un noyau Rust, compilée automatiquement via GitHub Actions.
 
 ---
 
 ### 🪖 1. Présentation opérationnelle
->monApp est une application Android minimaliste mais robuste, conçue selon une architecture militaire :  
+monApp est une application Android minimaliste mais robuste, conçue selon une architecture militaire :
+```md
 - Rust pour le noyau logique (monapp_core)  
 - C++ / JNI pour le pont tactique  
 - Java Android pour l’interface  
 - CMake pour l’intégration native  
 - GitHub Actions pour la compilation automatique de l’APK (aucun outil local requis)
+```
 
 >Ce projet est pensé pour fonctionner uniquement avec :
 - Un navigateur web,
