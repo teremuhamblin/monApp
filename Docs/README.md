@@ -24,15 +24,15 @@ monApp/Docs/README.md
 ### 🧱 2. Architecture du projet
 >Le projet est divisé en trois blocs principaux :
 
-####🔹 Rust (monapp_core)
+#### 🔹 Rust (monapp_core)
 Noyau logique de l’application.  
 Compile en librairie native (.so) pour Android.
 
-####🔹 Android (Java + CMake)
+#### 🔹 Android (Java + CMake)
 Interface Android minimale.  
 Charge la librairie Rust via JNI.
 
-####🔹 GitHub Actions (CI/CD)
+#### 🔹 GitHub Actions (CI/CD)
 Pipeline automatisé qui :  
 - compile Rust pour Android  
 - génère la librairie native  
