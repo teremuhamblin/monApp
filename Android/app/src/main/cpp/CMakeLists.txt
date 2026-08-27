@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.22.1)
-project(native-lib)
+add_library(monapp_rust_android SHARED IMPORTED)
+set_target_properties(monapp_rust_android PROPERTIES IMPORTED_LOCATION
+    ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI}/libmonapp_rust_android.so)
 
 add_library(native-lib SHARED native-lib.cpp)
 
-find_library(log-lib log)
-
-target_link_libraries(native-lib ${log-lib})
+target_link_libraries(native-lib monapp_rust_android)
