@@ -1,0 +1,42 @@
+name: Build monApp
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r26b
+
+      - name: Install Android targets
+        run: |
+          rustup target add aarch64-linux-android
+          rustup target add armv7-linux-androideabi
+
+      - name: Build Rust core
+        run: |
+          cd Rust/core
+          cargo build --release --target aarch64-linux-androideabi
+
+      - name: Build Android APK
+        run: |
+          cd Android
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: monApp-debug-apk
+          path: Android/app/build/outputs/apk/debug/*.apk
