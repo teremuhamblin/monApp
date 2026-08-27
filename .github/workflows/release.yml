@@ -1,0 +1,39 @@
+name: Release monApp
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read CHANGELOG.yaml
+        id: changelog
+        run: |
+          VERSION=$(yq '.changelog[0].version' CHANGELOG.yaml)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.changelog.outputs.version }}
+          name: "Release ${{ steps.changelog.outputs.version }}"
+          body: |
+            Version: ${{ steps.changelog.outputs.version }}
+            Status: stable
+            Voir CHANGELOG.yaml pour les détails.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: |
+            Android/app/build/outputs/apk/debug/*.apk
+            Rust/android-sdk/target/aarch64-linux-android/release/*.so
