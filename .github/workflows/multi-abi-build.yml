@@ -1,0 +1,38 @@
+name: Multi-ABI Build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_multi_abi:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        abi:
+          - aarch64-linux-android
+          - armv7-linux-androideabi
+          - x86_64-linux-android
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Android targets
+        run: |
+          rustup target add ${{ matrix.abi }}
+
+      - name: Build Rust core
+        run: |
+          cd Rust/core
+          cargo build --release --target ${{ matrix.abi }}
+
+      - name: Upload .so
+        uses: actions/upload-artifact@v4
+        with:
+          name: monapp-rust-${{ matrix.abi }}
+          path: Rust/core/target/${{ matrix.abi }}/release/*.so
