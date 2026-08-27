@@ -1,0 +1,31 @@
+name: Sync ROADMAP to GitHub Projects
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "ROADMAP.yaml"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse ROADMAP
+        id: roadmap
+        run: |
+          yq '.roadmap.versions' ROADMAP.yaml > versions.json
+          echo "versions=$(cat versions.json)" >> $GITHUB_OUTPUT
+
+      - name: Update GitHub Project
+        uses: octokit/graphql-action@v2
+        with:
+          query: |
+            mutation($versions: JSON!) {
+              # Exemple : mise à jour d’un projet GitHub
+              # À adapter selon ton ID de projet GitHub
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
