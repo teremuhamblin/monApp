@@ -38,11 +38,21 @@ Application Android tactique, propulsée par un noyau Rust, compilée automatiqu
 
 ```text
 monApp/
-├─ rust/                     # Noyau Rust (cdylib)
-│  ├─ Cargo.toml
-│  └─ src/lib.rs
+├─ Rust/                           # Noyau Rust + SDK Android
+│  ├─ core/                        # Crate Rust principale (cdylib)
+│  │  ├─ Cargo.toml
+│  │  └─ src/lib.rs
+│  │
+│  ├─ android-sdk/                 # Nouveau : package Rust pour Android (AAR)
+│  │  ├─ Cargo.toml
+│  │  ├─ src/lib.rs
+│  │  ├─ build.rs
+│  │  └─ jni/                      # Headers JNI générés
+│  │     └─ monapp_rust.h
+│  │
+│  └─ target/                      # Artefacts Rust (lib.so, AAR)
 │
-├─ android/                  # Application Android
+├─ Android/                        # Application Android
 │  ├─ settings.gradle
 │  ├─ build.gradle
 │  └─ app/
@@ -50,16 +60,34 @@ monApp/
 │     └─ src/main/
 │        ├─ AndroidManifest.xml
 │        ├─ java/com/example/monapp/MainActivity.java
+│        ├─ java/com/example/monapp/rust/   # Nouveau : wrapper Java
+│        │  └─ RustBridge.java
 │        └─ cpp/
 │           ├─ CMakeLists.txt
 │           └─ native-lib.cpp
 │
-├─ .github/workflows/        # Pipeline GitHub Actions
-│  └─ build.yml
+├─ Docs/                           # Documentation complète
+│  ├─ architecture.rst
+│  ├─ install_guide.rst
+│  ├─ api_reference.rst
+│  ├─ user_guide.rst
+│  ├─ operator_manual.rst
+│  └─ internal_compilation.rst
 │
-├─ LICENSE                   # The Unlicense (domaine public)
+├─ sdk/                            # Nouveau : SDK Rust Android exporté
+│  ├─ monapp-rust.aar
+│  └─ README.md
+│
+├─ .github/workflows/
+│  ├─ build.yml                    # Build APK + Rust
+│  ├─ rust-android.yml             # Build du SDK Rust Android
+│  └─ release.yml                  # Release GitHub
+│
 ├─ .gitignore
-└─ README.md
+├─ CHANGELOG.md
+├─ LICENSE
+├─ README.md
+└─ ROADMAP.md
 ```
 
 ---
