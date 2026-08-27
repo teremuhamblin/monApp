@@ -1,0 +1,26 @@
+name: Tests Rust & Android
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Run Rust tests
+        run: |
+          cd Rust/core
+          cargo test
+
+      - name: Run Android unit tests
+        run: |
+          cd Android
+          ./gradlew testDebugUnitTest
