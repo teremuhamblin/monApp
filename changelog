@@ -1,0 +1,20 @@
+changelog:
+  - version: "1.0.0"
+    date: "2026-08-27"
+    status: "stable"
+    changes:
+      added:
+        - "Intégration complète Rust (cdylib) + Android (JNI)"
+        - "Structure Android standard (Gradle, Manifest, MainActivity)"
+        - "Bridge JNI Rust ↔ Java"
+        - "Pipeline GitHub Actions (build Rust + APK)"
+        - "Documentation initiale (README, LICENSE, ROADMAP)"
+        - "Base du moteur Rust pour Android"
+      improved:
+        - "Organisation du dépôt (Rust/, Android/, Docs/, Workflows/)"
+        - "Optimisation du CMakeLists pour chargement dynamique du .so"
+        - "Nettoyage du code JNI + simplification des appels natifs"
+      fixed:
+        - "Correction des chemins JNI incorrects"
+        - "Correction des imports Java natifs"
+        - "Correction des erreurs de compilation Rust Android (targets manquants)"
