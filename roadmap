@@ -1,0 +1,48 @@
+roadmap:
+  project: "monApp"
+  owner: "Major Hamblin"
+  versions:
+    - version: "1.1.0"
+      codename: "Rust-SDK"
+      goals:
+        - "Créer le SDK Rust Android (AAR)"
+        - "Générer les bindings JNI automatiquement"
+        - "Publier le SDK sur GitHub Packages"
+        - "Intégrer le SDK dans l'app Android"
+      status: "in-progress"
+
+    - version: "1.2.0"
+      codename: "CI-CD-Advanced"
+      goals:
+        - "Pipeline complet Rust + Android + SDK"
+        - "Build multi-ABI (arm64, armeabi-v7a)"
+        - "Signature automatique APK"
+        - "Release automatique GitHub"
+      status: "planned"
+
+    - version: "1.3.0"
+      codename: "Docs-GhostRecon"
+      goals:
+        - "Documentation militaire Ghost Recon"
+        - "Guide opérateur Android"
+        - "Guide développeur Rust"
+        - "Documentation SDK"
+      status: "planned"
+
+    - version: "2.0.0"
+      codename: "Rust-Core-Engine"
+      goals:
+        - "Refonte du moteur Rust"
+        - "API Rust stable pour Android"
+        - "Module async Rust"
+        - "Support FFI avancé"
+      status: "future"
+
+    - version: "3.0.0"
+      codename: "Android-UX-Military"
+      goals:
+        - "Interface Android militaire (HUD, animations)"
+        - "Mode opérateur"
+        - "Mode infiltration"
+        - "Mode analyse système"
+      status: "future"
